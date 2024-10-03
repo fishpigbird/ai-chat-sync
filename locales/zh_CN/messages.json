@@ -1,0 +1,140 @@
+{
+  "extensionName": {
+    "message": "AI Chat Sync"
+  },
+  "extensionDescription": {
+    "message": "快速打开多个AI网站并同时和多个AI聊天"
+  },
+  "newChat": {
+    "message": "新聊天"
+  },
+  "quicklyOpenChatWebsite": {
+    "message": "快速打开聊天网站"
+  },
+  "closeAllChatWebsites": {
+    "message": "关闭所有聊天网站"
+  },
+  "addCurrentPageAsAIChatWebsite": {
+    "message": "添加当前页作为AI聊天网站"
+  },
+  "settings": {
+    "message": "设置"
+  },
+  "enableChatSynchronization": {
+    "message": "开启聊天同步"
+  },
+  "websiteName": {
+    "message": "网站名称"
+  },
+  "websiteURL": {
+    "message": "网站访问网址"
+  },
+  "websiteMatchingURL": {
+    "message": "网站网址匹配规则"
+  },
+  "websiteMatchingURLDesc": {
+    "message": "支持 * 通配符，比如 https://*.google.com、*://*.google.com/chat/*"
+  },
+  "customChatBoxRules": {
+    "message": "自定义聊天框规则"
+  },
+  "existingWebsiteRules": {
+    "message": "已有网站规则"
+  },
+  "chatBoxSelector": {
+    "message": "聊天框选择器"
+  },
+  "chatBoxSelectorDesc": {
+    "message": "语法为 CSS 选择器，比如 textarea、#chat-input、.chat-input"
+  },
+  "chatBoxSendButtonSelector": {
+    "message": "聊天框发送按钮选择器"
+  },
+  "chatBoxSendButtonSelectorDesc": {
+    "message": "语法为 CSS 选择器，比如 button、#send-button、.send-button"
+  },
+  "chatBoxSendsKeyboardKeys": {
+    "message": "聊天框发送键盘按键"
+  },
+  "selectChatBoxToSendKeyboardKeys": {
+    "message": "选择聊天框发送键盘按键"
+  },
+  "selectExistingAIChatWebsiteConfiguration": {
+    "message": "选择已有AI聊天网站配置"
+  },
+  "websiteNameRequired": {
+    "message": "请输入网站名称"
+  },
+  "incorrectWebsiteURL": {
+    "message": "请输入正确的网站访问网址"
+  },
+  "websiteURLRequired": {
+    "message": "请输入网站访问网址"
+  },
+  "websiteMatchingURLRequired": {
+    "message": "请输入网站匹配网址"
+  },
+  "errorWebsiteMatchingURL": {
+    "message": "网站匹配网址格式错误"
+  },
+  "aiChatBoxInputSelectorRequired": {
+    "message": "请输入AI聊天框输入选择器"
+  },
+  "aiChatBoxSendButtonSelectorRequired": {
+    "message": "请输入AI聊天框发送按钮选择器"
+  },
+  "cancel": {
+    "message": "取消"
+  },
+  "submit": {
+    "message": "提交"
+  },
+  "about": {
+    "message": "关于"
+  },
+  "aiWebsite": {
+    "message": "AI聊天网站"
+  },
+  "quickOpenWebsiteMethod": {
+    "message": "快速打开网站方式"
+  },
+  "tabs": {
+    "message": "标签页"
+  },
+  "newWindowTabs": {
+    "message": "新窗口标签页"
+  },
+  "horizontalTiling": {
+    "message": "水平平铺"
+  },
+  "verticalTiling": {
+    "message": "垂直平铺"
+  },
+  "gridTiling": {
+    "message": "网格平铺"
+  },
+  "system": {
+    "message": "系统"
+  },
+  "custom": {
+    "message": "自定义"
+  },
+  "addToQuickOpen": {
+    "message": "添加到快速打开"
+  },
+  "confirm": {
+    "message": "确定"
+  },
+  "deleteTip": {
+    "message": "确定要删除吗?"
+  },
+  "aboutDesc": {
+    "message": "如果遇到问题或者有新的需求，可以通过下面的链接进行反馈~"
+  },
+  "problemFeedback": {
+    "message": "问题反馈"
+  },
+  "email": {
+    "message": "邮箱"
+  }
+}

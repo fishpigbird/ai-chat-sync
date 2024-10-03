@@ -1,0 +1,140 @@
+{
+  "extensionName": {
+    "message": "AI Chat Sync"
+  },
+  "extensionDescription": {
+    "message": "Quickly open AI websites and chat with multiple AIs concurrently"
+  },
+  "newChat": {
+    "message": "New chat"
+  },
+  "quicklyOpenChatWebsite": {
+    "message": "Quickly open the chat websites"
+  },
+  "closeAllChatWebsites": {
+    "message": "Close all chat websites"
+  },
+  "addCurrentPageAsAIChatWebsite": {
+    "message": "Add the current page as an AI chat website"
+  },
+  "settings": {
+    "message": "Settings"
+  },
+  "enableChatSynchronization": {
+    "message": "Enable chat synchronization"
+  },
+  "websiteName": {
+    "message": "Website name"
+  },
+  "websiteURL": {
+    "message": "Website URL"
+  },
+  "websiteMatchingURL": {
+    "message": "Website URL matching rules"
+  },
+  "websiteMatchingURLDesc": {
+    "message": "Support *, such as https://*.google.com, *://*.google.com/chat"
+  },
+  "customChatBoxRules": {
+    "message": "Custom rules"
+  },
+  "existingWebsiteRules": {
+    "message": "Existing rules"
+  },
+  "chatBoxSelector": {
+    "message": "Chat box selector"
+  },
+  "chatBoxSelectorDesc": {
+    "message": "The syntax is CSS selectors, such as textarea, #chat-input, .chat-input"
+  },
+  "chatBoxSendButtonSelector": {
+    "message": "Chat box send button selector"
+  },
+  "chatBoxSendButtonSelectorDesc": {
+    "message": "The syntax is CSS selectors, such as button, #send-button, .send-button"
+  },
+  "chatBoxSendsKeyboardKeys": {
+    "message": "Chat box sends keyboard keys"
+  },
+  "selectChatBoxToSendKeyboardKeys": {
+    "message": "Select chat box to send keyboard keys"
+  },
+  "selectExistingAIChatWebsiteConfiguration": {
+    "message": "Select existing AI chat website configuration"
+  },
+  "websiteNameRequired": {
+    "message": "Please enter the website name"
+  },
+  "incorrectWebsiteURL": {
+    "message": "Please enter the correct website URL"
+  },
+  "websiteURLRequired": {
+    "message": "Please enter the website URL"
+  },
+  "websiteMatchingURLRequired": {
+    "message": "Please enter the website URL matching rules"
+  },
+  "errorWebsiteMatchingURL": {
+    "message": "Website URL matching rules format error"
+  },
+  "aiChatBoxInputSelectorRequired": {
+    "message": "Please enter the AI chat box input selector"
+  },
+  "aiChatBoxSendButtonSelectorRequired": {
+    "message": "Please enter the AI chat box send button selector"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "submit": {
+    "message": "Submit"
+  },
+  "about": {
+    "message": "About"
+  },
+  "aiWebsite": {
+    "message": "AI chat websites"
+  },
+  "quickOpenWebsiteMethod": {
+    "message": "Quickly open website method"
+  },
+  "tabs": {
+    "message": "Tabs"
+  },
+  "newWindowTabs": {
+    "message": "New window tabs"
+  },
+  "horizontalTiling": {
+    "message": "Horizontal tiling"
+  },
+  "verticalTiling": {
+    "message": "Vertical tiling"
+  },
+  "gridTiling": {
+    "message": "Grid tiling"
+  },
+  "system": {
+    "message": "System"
+  },
+  "custom": {
+    "message": "Custom"
+  },
+  "addToQuickOpen": {
+    "message": "Add to quick open"
+  },
+  "confirm": {
+    "message": "Confirm"
+  },
+  "deleteTip": {
+    "message": "Are you sure you want to delete?"
+  },
+  "aboutDesc": {
+    "message": "If you find any problems or have new requirements, you can provide feedback through the following link~"
+  },
+  "problemFeedback": {
+    "message": "Feedback"
+  },
+  "email": {
+    "message": "Email"
+  }
+}
