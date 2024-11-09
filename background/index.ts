@@ -1,5 +1,5 @@
 import EventQueue from '@/common/event-queue';
-import { isEmpty } from '@/common/functions';
+import { isEmpty, tryExecute } from '@/common/functions';
 import ActiveAiChatStorage from '@/storage/active-ai-chat-storage';
 const activeAiChatStorage = ActiveAiChatStorage.getInstance();
 const eventQueue = new EventQueue();
@@ -9,9 +9,9 @@ async function activeAiChatByTabId(tabId: number) {
     if (isAiChatSite) {
         const lastActiveAiChats = await activeAiChatStorage.getActiveAiChat();
         if (lastActiveAiChats) {
-            await chrome.tabs.sendMessage(lastActiveAiChats.tabId, {type: 'aiChat.deactivate'});
+            await tryExecute(() => chrome.tabs.sendMessage(lastActiveAiChats.tabId, {type: 'aiChat.deactivate'}));
         }
-        await chrome.tabs.sendMessage(tabId, {type: 'aiChat.activate'});
+        await tryExecute(() => chrome.tabs.sendMessage(tabId, {type: 'aiChat.activate'}));
         await activeAiChatStorage.activeAiChat(tabId);
     }
 }
@@ -38,7 +38,7 @@ async function aiChatInput(message: Message, sender: chrome.runtime.MessageSende
     if (activeAiChat && activeAiChat.tabId === sender.tab.id) {
         const syncInputTabs = tabs.filter(tab => tab.tabId !== sender.tab.id && tab.syncInput);
         for (const tab of syncInputTabs) {
-            await chrome.tabs.sendMessage(tab.tabId, {type: 'aiChat.input', payload: message.payload});
+            await tryExecute(() => chrome.tabs.sendMessage(tab.tabId, {type: 'aiChat.input', payload: message.payload}));
         }
     }
 }
@@ -53,7 +53,7 @@ async function aiChatSend(message: Message, sender: chrome.runtime.MessageSender
     if (activeAiChat && activeAiChat.tabId === sender.tab.id) {
         const syncInputTabs = tabs.filter(tab => tab.tabId !== sender.tab.id && tab.syncInput);
         for (const tab of syncInputTabs) {
-            await chrome.tabs.sendMessage(tab.tabId, {type: 'aiChat.send', payload: message.payload});
+            await tryExecute(() => chrome.tabs.sendMessage(tab.tabId, {type: 'aiChat.send', payload: message.payload}));
             if (process.env.PLASMO_PUBLIC_DEBUG === "true") {
                 console.log('send', message, tab);
             }
@@ -64,7 +64,7 @@ async function aiChatSend(message: Message, sender: chrome.runtime.MessageSender
 async function aiChatNewChat() {
     const tabs = await activeAiChatStorage.getAiChats();
     for (const tab of tabs) {
-        await chrome.tabs.sendMessage(tab.tabId, {type: 'aiChat.newChat'});
+        await tryExecute(() => chrome.tabs.sendMessage(tab.tabId, {type: 'aiChat.newChat'}));
     }
 }
 
@@ -93,6 +93,9 @@ chrome.tabs.onRemoved.addListener((tabId, removeInfo) => {
 chrome.tabs.onUpdated.addListener(async (tabId, activeInfo, tab) => {
     if (activeInfo.url && tab.active) {
         eventQueue.push(async () => await activeAiChatByTabId(tabId))
+    }
+    if (activeInfo.discarded) {
+        eventQueue.push(async () => await activeAiChatStorage.unregisterAiChat(tabId));
     }
 });
 

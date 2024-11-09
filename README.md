@@ -1,33 +1,31 @@
 # AI Chat Sync
 
-English | [简体中文](README-zh-CN.md)
+简体中文 | [English](README-EN.md)
 
-A browser plugin that quickly opens AI websites and chats with multiple AIs concurrently.
+快速打开AI聊天网站并同时与多个AI聊天的浏览器插件。
 
-The responses from large language models developed by different companies can vary significantly when answering the same question. Often, we need to compare replies from different large language models to find the optimal answer. This browser plugin aims to simplify this process by helping you quickly open AI chat websites from multiple companies with a single click. When you chat on any of these websites, it synchronously sends the question to other AI chat websites.
+不同公司推出的大语言模型在回答同一问题时差异可能很大，很多时候我们需要比对不同的大语言模型的回复来找到最优的回答，此浏览器插件旨在简化这一过程，一键帮你快速打开多个公司的AI聊天网站，在任一网站内聊天会同步发送问题到其他的AI聊天网站。
 
-## Features
-- One-click to quickly open multiple AI chat websites and quickly close all opened AI chat websites, opening methods support current window tab, new window tab, new window horizontal tiling, new window vertical tiling, new window grid tiling.
+## 功能
+- 一键快速打开多个AI聊天网站以及快速关闭已打开的所有AI聊天网站，打开方式支持当前窗口标签页、新窗口标签页、新窗口水平平铺、新窗口垂直平铺、新窗口网格平铺。
+- 同步聊天功能，在任一AI聊天网站发送问题将同步发送给其他AI聊天网站，支持批量发起新聊天、快速关闭所有AI聊天同步、快速关闭指定的AI聊天同步。
+- 支持添加新的网页作为AI聊天网站进行快速打开以及同步聊天。支持自定义规则以及使用系统已有AI聊天网站的规则。
 
-- Synchronous chat function, sending a question to any AI chat website will be synchronized to other AI chat websites, supporting batch initiation of new chats, quickly closing all AI chat synchronizations, and quickly closing specified AI chat synchronizations.
+## 安装 
+[Chrome应用商店](https://chromewebstore.google.com/detail/ai-chat-sync/afjalhepkaledpiempnidkhijjaolffi?hl=zh-CN&authuser=0)
 
-- Support adding new web pages as AI chat websites for quick opening and synchronous chatting. Support custom rules and use the rules of existing AI chat websites in the system.
+## 截图
 
-## Install
-[Chrome Web Store](https://chromewebstore.google.com/detail/ai-chat-sync/afjalhepkaledpiempnidkhijjaolffi?hl=zh-CN&authuser=0)
-
-## Screenshots
-
-### Settings
+### 设置
 ![Settings](screenshots/settings.png?raw=true)
 
-### Chat
+### 聊天同步
 ![Chat](screenshots/chat.png?raw=true)
 
-### Popup
+### 弹窗
 ![Popup](screenshots/popup.png?raw=true)
 
-## AI chat website supported by the system
+## 系统支持的AI聊天网站
 - [ChatGPT](https://chatgpt.com)
 - [Claude](https://claude.ai)
 - [Copilot](https://copilot.microsoft.com)
@@ -55,5 +53,5 @@ The responses from large language models developed by different companies can va
 - [万知](https://www.wanzhi.com)
 - [360智脑](https://chat.360.com)
 
-### Privacy Policy
-This plugin does not collect any chat content, settings, and data are all saved on your local computer.
+### 隐私政策
+本插件不收集任何的聊天内容，设置和数据都保存在您的计算机本地。

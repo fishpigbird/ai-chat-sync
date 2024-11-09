@@ -10,4 +10,13 @@ function isEmpty(value) {
     return value === null || value === undefined || value.trim() === '' || /^[\s\n]*$/.test(value);
 }
 
-export { debounce, isEmpty };
+async function tryExecute(callback: () => Promise<void>) {
+    try {
+        await callback();
+    }
+    catch (e) {
+        console.error(e);
+    }
+}
+
+export { debounce, isEmpty, tryExecute };
