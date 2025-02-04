@@ -31,7 +31,18 @@ class FeloAiChat extends InputElementAiChat {
     }
 
     queryRelatedQuestionsElement(): HTMLElement | null {
-        return document.querySelector('.divide-y.border-t');
+        const elements = document.querySelectorAll('.flex.flex-col.gap-4.w-full');
+
+        if (elements.length > 0) {
+            const lastElement = elements[elements.length - 1];
+            console.log(lastElement); // 这将打印最后一个匹配的元素
+            // 你可以在这里对 lastElement 进行操作
+            return lastElement as HTMLElement;
+        } else {
+            console.log('No elements found matching the selector.');
+        }
+        // 获取所有div元素
+        //return document.querySelector('.mt-8.animate-\[fadeIn_1s_ease-in-out\] > .flex.flex-col.gap-4.w-full');
     }
 
     //不生效 ， 按键没生效， 生效的是 querySendButtonElement

@@ -43,23 +43,22 @@ class AiChatFactory {
     static systemAiChats: AiChat[] = [
         new ChatGPTInnoAiChat(),
         new ChatGPTAiChat(),
-        new ClaudeAiChat(),
-        new MicrosoftCopilotAiChat(),
-        new GeminiAiChat(),
         new GeminiStudioAiChat(),
-        new GoogleAiChat(),
         new DeepseekAiChat(),
         new OmgptAiChat(),
         new FeloAiChat(),
         new PerplexityAiChat(),
-
+        new GoogleAiChat(),
         new HaiLuoAiChat(),
-        new DoubaoAiChat(),
 
+        new MicrosoftCopilotAiChat(),
+        new ClaudeAiChat(),
+        new GeminiAiChat(),
+
+        new DoubaoAiChat(),
 
         new PoeAiChat(),
         new CozeAiChat(),
-
         new YouAiChat(),
         new HuggingAiChat(),
         new CharacterAiChat(),

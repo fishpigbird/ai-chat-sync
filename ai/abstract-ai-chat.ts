@@ -231,12 +231,31 @@ abstract class AbstractAiChat implements AiChat {
     // 回车键到输入框
     enterKeyToInput(): void {
         if (this.inputElement) {
-            const event = new KeyboardEvent('keydown', {
+            // 创建更完整的键盘事件
+            const createKeyEvent = (type: string) => new KeyboardEvent(type, {
                 key: 'Enter',
+                keyCode: 13,  // 兼容旧浏览器
+                code: 'Enter',
+                which: 13,   // 兼容旧浏览器
                 bubbles: true,
-                cancelable: true
+                cancelable: true,
+                composed: true
             });
-            this.inputElement.dispatchEvent(event);
+
+            // 按顺序触发完整的事件流
+            const events = [
+                createKeyEvent('keydown'),  // 按键按下
+                createKeyEvent('keypress'), // 按键保持
+                createKeyEvent('keyup')     // 按键释放
+            ];
+
+            events.forEach(event => {
+                this.inputElement.dispatchEvent(event);
+                
+                if (process.env.PLASMO_PUBLIC_DEBUG === "true") {
+                    console.log('Dispatched', event.type, 'event');
+                }
+            });
         }
     }
 
