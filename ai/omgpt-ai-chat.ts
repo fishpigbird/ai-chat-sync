@@ -9,13 +9,18 @@ class OmgptAiChat extends ContenteditableElementAiChat {
     icon: string = iconUrl;
     url: string = "https://ohmygpt.com/chat/";
     matches: string[] = [
-        "*://*.ohmygpt.com/*",  // 覆盖所有子域名
-        "*://ohmygpt.com/*",
-        "*://*.ohmygpt.com/chat*" // 明确包含聊天路径
-    ];
+        "*://*.ohmygpt.com/*",  // 
+        "*://ohmygpt.com/*"     // 
+    ]; //这里是匹配是否激活同步用的，不是管理是否触发脚本用的。
+    //所有网页都会触发脚本；
+    //但只有matches才会触发同步。
+    
+    // /^(http|https):\/\/[^/]*?ohmygpt\.com\/chat\/?p=1\/?$/
+    // /^(http|https):\/\/ohmygpt\.com\/chat\/?p=1\/?$/
 
     constructor() {
         super();
+        console.log('omgpt constructor');   
         this.autoClickNewChatButton();
     }
 
@@ -57,23 +62,27 @@ class OmgptAiChat extends ContenteditableElementAiChat {
 
     autoClickNewChatButton(): void {
         console.log("autoClickNewChatButton");
+        let hasClicked = false;
         const tryClick = () => {
+            if (hasClicked) return;
             const newChatButton = this.queryNewChatButtonElement();
             if (newChatButton && !this.active) {
                 newChatButton.click();
+                hasClicked = true;
+                observer.disconnect();
                 if (process.env.PLASMO_PUBLIC_DEBUG === "true") {
                     console.log('auto clicked new chat button');
                 }
             }
         };
 
-        // 使用和父类相同的元素监听机制
         const observer = new MutationObserver(tryClick);
         observer.observe(document.body, { childList: true, subtree: true });
         
-        // 初始尝试
-        setTimeout(tryClick, 1000);
-        // setTimeout(tryClick, 3000);
+        setTimeout(() => {
+            tryClick();
+            setTimeout(() => observer.disconnect(), 3000);
+        }, 1000);
     }
 
 }

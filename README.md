@@ -1,27 +1,20 @@
-
 # # 构建
 
 ```
 # 安装pnpm
 npm install -g pnpm
-
 # 使用pnpm安装
 pnpm install
-
-
 pnpm build
-
-
-
-
 ```
-
 
 # 增加
 
-ohmygpt 
+ohmygpt
 
 felo
+
+hailuo.ai
 
 google_studio
 
@@ -29,9 +22,7 @@ gpt匿名模式
 
 Google 搜索
 
-# 代码
-
-回车添加一些参数，尽量根据输入框去触发发送，而不是发送按钮，这样一般只需要发送按钮和new message两个元素就可以维护了。
+回车添加一些参数，根据输入框触发
 
 # ---
 
