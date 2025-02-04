@@ -11,7 +11,10 @@ class KimiAiChat extends ContenteditableElementAiChat {
     matches: string[] = ["*://kimi.moonshot.cn/*"];
 
     queryInputElement(): HTMLInputElement | HTMLTextAreaElement | null {
-        return document.querySelector('div[contenteditable="true"],div[data-testid="msh-chatinput-editor"]');
+        // return document.querySelector('div[contenteditable="true"],div[data-testid="msh-chatinput-editor"]');
+
+        return document.querySelector('.send-button');
+
     }
 
     querySendButtonElement(): HTMLElement | null {

@@ -4,11 +4,12 @@ import InputElementAiChat from '@/ai/input-element-ai-chat';
 import iconUrl from 'data-url:@/assets/hailuo.png';
 
 class HaiLuoAiChat extends InputElementAiChat {
-    id: string = "HaiLuo";
-    name: string = "海螺";
+    id: string = "HaiLuo.ai";
+    name: string = "海螺Global";
     icon: string = iconUrl;
-    url: string = "https://hailuoai.com";
-    matches: string[] = ["*://hailuoai.com/*"];
+    url: string = "https://hailuo.ai";
+    matches: string[] = ["*://hailuo.ai/*", "*://*.hailuo.ai/*"];
+
 
     queryInputElement(): HTMLInputElement | HTMLTextAreaElement | null {
         return document.querySelector('textarea#chat-input,textarea');

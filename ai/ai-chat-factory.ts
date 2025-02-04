@@ -11,6 +11,15 @@ import CustomAiChat from '@/ai/custom-ai-chat';
 import DeepseekAiChat from '@/ai/deepseek-ai-chat';
 import DoubaoAiChat from '@/ai/doubao-ai-chat';
 import GeminiAiChat from '@/ai/gemini-ai-chat';
+
+import GeminiStudioAiChat from '@/ai/gemini-ai-chat-studio';
+import ChatGPTInnoAiChat from '@/ai/chatgpt-ai-chat-inno';
+import OmgptAiChat from '@/ai/omgpt-ai-chat';
+import FeloAiChat from '@/ai/felo-ai-chat';
+
+
+
+import GoogleAiChat from '@/ai/search-google';      
 import HaiLuoAiChat from '@/ai/hailuo-ai-chat';
 import HuggingAiChat from '@/ai/hugging-ai-chat';
 import KimiAiChat from '@/ai/kimi-ai-chat';
@@ -32,13 +41,25 @@ import CustomAiChatStorage from '@/storage/custom-ai-chat-storage';
 
 class AiChatFactory {
     static systemAiChats: AiChat[] = [
+        new ChatGPTInnoAiChat(),
         new ChatGPTAiChat(),
         new ClaudeAiChat(),
         new MicrosoftCopilotAiChat(),
         new GeminiAiChat(),
+        new GeminiStudioAiChat(),
+        new GoogleAiChat(),
+        new DeepseekAiChat(),
+        new OmgptAiChat(),
+        new FeloAiChat(),
+        new PerplexityAiChat(),
+
+        new HaiLuoAiChat(),
+        new DoubaoAiChat(),
+
+
         new PoeAiChat(),
         new CozeAiChat(),
-        new PerplexityAiChat(),
+
         new YouAiChat(),
         new HuggingAiChat(),
         new CharacterAiChat(),
@@ -49,19 +70,25 @@ class AiChatFactory {
         new TongYiAiChat(),
         new KimiAiChat(),
         new TianGongAiChat(),
-        new DoubaoAiChat(),
-        new DeepseekAiChat(),
+      
+    
         new ChatGLMAiChat(),
+
         //new XfXingHuoAiChat(),
         new YuanBaoAiChat(),
         new BaiChuanAiChat(),
         //new MetasoAiChat(),
-        new HaiLuoAiChat(),
+  
         new SenseAiChat(),
         new WanZhiAiChat(),
         new ThreeAiChat(),
     ];
 
+    // 获取所有ai聊天
+    // 解释函数
+    // 1. 获取自定义ai聊天
+    // 2. 获取系统ai聊天
+    // 3. 返回所有ai聊天
     static async getAllAiChats(): Promise<AiChat[]> {
         const customAiChatSites = await CustomAiChatStorage.getInstance().getCustomAiChats();
         const customAiChats = customAiChatSites.map(site => {
@@ -83,7 +110,12 @@ class AiChatFactory {
         return [...customAiChats, ...this.systemAiChats];
     }
 
+    // 解释函数
+    // 1. 获取所有ai聊天
+    // 2. 获取匹配的ai聊天  
+
     static async getAiChat(url: string): Promise<AiChat | null> {
+
         return (await this.getAllAiChats()).find(chat => chat.matches.some(m => {
             const reg = parse(m);
             //console.log('reg', reg, reg.test(url), url)

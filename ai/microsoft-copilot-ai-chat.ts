@@ -11,26 +11,36 @@ class MicrosoftCopilotAiChat extends InputElementAiChat {
     matches: string[] = ["*://copilot.microsoft.com/*"];
 
     queryInputElement(): HTMLInputElement | HTMLTextAreaElement | null {
-        const serpMain = document.querySelector('.cib-serp-main');
-        const barMain = serpMain?.shadowRoot?.querySelector('#cib-action-bar-main');
-        const textInput = barMain?.shadowRoot?.querySelector('cib-text-input');
-        let input = textInput ? textInput?.shadowRoot?.querySelector('#searchbox,textarea') : barMain?.shadowRoot?.querySelector('#searchbox,textarea');
+        // const serpMain = document.querySelector('.cib-serp-main');
+        // const barMain = serpMain?.shadowRoot?.querySelector('#cib-action-bar-main');
+        // const textInput = barMain?.shadowRoot?.querySelector('cib-text-input');
+        // let input = textInput ? textInput?.shadowRoot?.querySelector('#searchbox,textarea') : barMain?.shadowRoot?.querySelector('#searchbox,textarea');
 
-        return input as HTMLInputElement;
+
+        return document.querySelector('textarea#userInput');
+
+        // return input as HTMLInputElement;
     }
 
     querySendButtonElement(): HTMLElement | null {
-        const serpMain = document.querySelector('.cib-serp-main');
-        const barMain = serpMain?.shadowRoot?.querySelector('#cib-action-bar-main');
-        let sendButton = barMain?.shadowRoot?.querySelector('div.control.submit > button,button[aria-label="Submit"],button[aria-label="提交"]');
+        // const serpMain = document.querySelector('.cib-serp-main');
+        // const barMain = serpMain?.shadowRoot?.querySelector('#cib-action-bar-main');
+        // let sendButton = barMain?.shadowRoot?.querySelector('div.control.submit > button,button[aria-label="Submit"],button[aria-label="提交"]');
 
-        return sendButton as HTMLInputElement;
+        // return sendButton as HTMLInputElement;
+
+        return document.querySelector('div > button[title="Submit message"]');
+
     }
 
     queryNewChatButtonElement(): HTMLElement | null {
-        const serpMain = document.querySelector('.cib-serp-main');
-        const barMain = serpMain?.shadowRoot?.querySelector('#cib-action-bar-main');
-        return barMain?.shadowRoot?.querySelector('div.button-compose-wrapper > button,button[aria-label="New topic"],button[aria-label="新主题"]') as HTMLElement;
+        // const serpMain = document.querySelector('.cib-serp-main');
+        // const barMain = serpMain?.shadowRoot?.querySelector('#cib-action-bar-main');
+        // return barMain?.shadowRoot?.querySelector('div.button-compose-wrapper > button,button[aria-label="New topic"],button[aria-label="新主题"]') as HTMLElement;
+    
+    
+    return document.querySelector('button[title="Start new chat"]');
+    
     }
 
     hasRelatedQuestions(): boolean {

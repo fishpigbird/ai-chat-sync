@@ -21,11 +21,21 @@ class DeepseekAiChat extends InputElementAiChat {
     }
 
     queryNewChatButtonElement(): HTMLElement | null {
+        //兼容“New chat”或者“开启新对话”
+     
         return Array.from(document.querySelectorAll('div'))
             .find(div => Array.from(div.childNodes)
-                .some(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim() === '开启新对话'));
+                    // .some(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim() === '开启新对话'   ));
+                    //.some(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim() === 'New chat'   ));
+                    //或者
+                    .some(node => node.nodeType === Node.TEXT_NODE && (node.textContent.trim() === '开启新对话' || node.textContent.trim() === 'New chat')));
+
+
+
     }
 
+
+    //deepseek 第一条消息发送的时候，获取失败，其他页面没有更新
     sendKey(): SendKey[] {
         return ["Enter"];
     }

@@ -3,19 +3,15 @@ import ContenteditableElementAiChat from '@/ai/contenteditable-element-ai-chat';
 // @ts-ignore
 import iconUrl from 'data-url:@/assets/chatgpt.png';
 
-class ChatGPTAiChat extends ContenteditableElementAiChat {
-    id: string = "ChatGPT";
-    name: string = "ChatGPT";
+class ChatGPTInnoAiChat extends ContenteditableElementAiChat {
+    id: string = "ChatGPTInno";
+    name: string = "ChatGPTInno";
     icon: string = iconUrl;
-    url: string = "https://chatgpt.com";
+    url: string = "https://chatgpt.com/?temporary-chat=true";
     matches: string[] = ["*://chatgpt.com/*"];
 
     queryInputElement(): HTMLInputElement | HTMLTextAreaElement | null {
         return document.querySelector('div.ProseMirror,div[contenteditable="true"]');
-        // element 写入文本 "test" 用.input
-
-
-
     }
 
     querySendButtonElement(): HTMLElement | null {
@@ -40,8 +36,8 @@ class ChatGPTAiChat extends ContenteditableElementAiChat {
 
     send(text: string): void {
         window.scrollTo(0, document.body.scrollHeight);
-        super.send(text);// 这里为什么需要super.send(text)  
+        super.send(text);
     }
 }
 
-export default ChatGPTAiChat;
+export default ChatGPTInnoAiChat;

@@ -16,7 +16,10 @@ class ChatGLMAiChat extends InputElementAiChat {
 
     querySendButtonElement(): HTMLElement | null {
         //return document.querySelector('.input-wrap > .enter img,.enter img');
-        return null;
+
+        return document.querySelector('.input-wrap.flex.flex-x-between.flex-y-center > .enter');
+
+        // return null;
     }
 
     queryNewChatButtonElement(): HTMLElement | null {
